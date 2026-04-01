@@ -1,72 +1,57 @@
-# desafio-indicium-analytics
+# 📊 Desafio Técnico: Senior Analytics Engineer - Indicium AI
 
-Desafio Técnico: Indicium Analytics (Senior Analytics Engineer)
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge" alt="Status">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas">
+  <img src="https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" alt="PowerBI">
+  <img src="https://img.shields.io/badge/Apache%20Parquet-632CA6?style=for-the-badge&logo=apache&logoColor=white" alt="Parquet">
+</p>
 
-• Este repositório contém a solução para o desafio técnico da Indicium AI, focado na transformação e modelagem de dados da base Northwind para fins de Business Intelligence.
+## 📝 Descrição do Projeto
+Este repositório contém a solução para o desafio técnico da **Indicium AI**, focado na transformação e modelagem de dados da base **Northwind** para a empresa *Northwind Traders*. O projeto visa transformar silos de dados brutos em uma estrutura analítica de alta performance.
 
+---
 
-📌 Visão Geral
+## 📌 Visão Geral
+O objetivo principal foi realizar o processamento de dados brutos (CSV), aplicando modelagem dimensional (Star Schema) e convertendo os dados para o formato **Parquet**, otimizando o consumo de memória e velocidade de processamento no **Power BI**.
 
-O objetivo deste projeto foi processar dados brutos (CSV), aplicar técnicas de modelagem dimensional e disponibilizar os arquivos em um formato otimizado para consumo em ferramentas de BI, como o Power BI.
+## 🛠️ Stack Tecnológica
+* **Linguagem:** ![Python](https://img.shields.io/badge/Python-3.x-blue?style=flat-square&logo=python)
+* **Transformação:** ![Pandas](https://img.shields.io/badge/Pandas-ETL-150458?style=flat-square&logo=pandas)
+* **Ambiente:** ![Google Colab](https://img.shields.io/badge/Google%20Colab-Notebook-orange?style=flat-square&logo=googlecolab)
+* **Armazenamento:** ![Parquet](https://img.shields.io/badge/Storage-Apache%20Parquet-632CA6?style=flat-square)
+* **BI:** ![Power BI](https://img.shields.io/badge/Visualization-Power%20BI-F2C811?style=flat-square&logo=powerbi)
 
+---
 
-🛠️ Tecnologias Utilizadas
+## 📂 Estrutura Dimensional (Star Schema)
 
-• Python: Linguagem principal para manipulação de dados.
+A arquitetura de dados foi desenhada para maximizar a performance analítica:
 
-• Pandas: Biblioteca utilizada para limpeza e transformação.
+### 🔹 Tabelas Dimensão (`/data/dim_`)
+* `dim_employees`: Cadastro e hierarquia de funcionários.
+* `dim_customers`: Atributos detalhados dos clientes.
+* `dim_products`: Catálogo com categorias e fornecedores integrados.
+* `dim_states` & `dim_territories`: Dimensões geográficas.
 
-• Google Colab: Ambiente de desenvolvimento para os scripts de ETL.
+### 🔸 Tabelas Fato (`/data/fact_`)
+* `fact_sales_completed`: Transações de vendas, métricas de receita e volume.
+* `fact_churn_analysis`: Modelagem preditiva/histórica de retenção de clientes.
 
-• Apache Parquet: Formato de armazenamento colunar escolhido pela alta performance e compressão.
+---
 
-• Power BI: Camada de visualização de dados (consumindo os arquivos .parquet).
+## 🚀 Pipeline de Dados
+1.  **Ingestão:** Extração de fontes `.csv`.
+2.  **Transformação:** * Tratamento de tipos e valores nulos.
+    * Criação de **Surrogate Keys**.
+    * Lógica de negócio aplicada para análise de **Churn**.
+3.  **Carga:** Escrita em `.parquet` com compressão *snappy*.
 
+---
 
-
-📂 Estrutura de Dados (Star Schema)
-
-A modelagem foi estruturada seguindo os princípios de Star Schema, facilitando a performance em consultas analíticas:
-
-Tabelas Dimensão (dim_)
-
-• dim_employees: Informações cadastrais dos funcionários.
-
-• dim_customers: Dados detalhados dos clientes.
-
-• dim_products: Catálogo de produtos, categorias e fornecedores.
-
-• dim_states & dim_territories: Dimensões geográficas para análise regional.
-
-
-Tabelas Fato (fact_)
-
-• fact_sales_completed: Registros de vendas finalizadas, métricas de valor e quantidade.
-
-• fact_churn_analysis: Modelagem específica para análise de retenção e perda de clientes.
-
-
-
-🚀 Fluxo de Trabalho (Pipeline)
-
-• Ingestão: Leitura dos arquivos originais em formato .csv.
-
-• Transformação: * Tratamento de valores ausentes e normalização de tipos.
-
-• Criação de chaves substitutas (surrogate keys) onde necessário.
-
-• Filtragem e agregação para a criação das tabelas fato.
-
-• Carga: Exportação dos DataFrames para o formato .parquet, garantindo que o esquema de dados seja preservado e o arquivo final seja leve.
-
-
-
-🔧 Como Executar
-
-• Acesse o notebook desafio_tecnico_northwind.ipynb no Google Colab ou ambiente Jupyter local.
-
-• Certifique-se de que os arquivos CSV de origem estejam no diretório correto.
-
-• Execute as células para gerar os arquivos .parquet listados no repositório.
-
-• Importe os arquivos .parquet no Power BI através do conector nativo de pastas ou arquivos.
+## 📁 Organização do Repositório
+```bash
+├── data/               # Arquivos finais em formato Parquet
+├── notebooks/          # Scripts de ETL (Jupyter/Colab)
+└── README.md           # Documentação
