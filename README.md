@@ -52,6 +52,7 @@ A arquitetura de dados foi desenhada para maximizar a performance analítica:
 
 ## 📁 Organização do Repositório
 ```bash
-├── data/               # Arquivos finais em formato Parquet
-├── notebooks/          # Scripts de ETL (Jupyter/Colab)
+├── csv_files/          # Arquivos de ingestão (fonte em .csv)
+├── parquet_files/      # Arquivos finais em formato Parquet
+├── python_files/       # Scripts de ETL (Jupyter/Colab)
 └── README.md           # Documentação
