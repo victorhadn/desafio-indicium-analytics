@@ -31,7 +31,7 @@ Tabelas Dimensão (dim_)
 
 • dim_products: Catálogo de produtos, categorias e fornecedores.
 
-•dim_states & dim_territories: Dimensões geográficas para análise regional.
+• dim_states & dim_territories: Dimensões geográficas para análise regional.
 
 
 Tabelas Fato (fact_)
